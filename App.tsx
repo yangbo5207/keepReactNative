@@ -6,113 +6,46 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { SafeAreaView, StatusBar, Text, View, } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import './global.css';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+  console.log('hello world.')
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <SafeAreaView className='bg-green-100 flex-1'>
+      <StatusBar />
+      <View className='border border-gray-200 rounded-lg mx-4 my-2 p-4 bg-white flex flex-row'>
+        <View className='w-16 h-16 bg-gray-300 rounded-full'></View>
+        <View className='ml-4'>
+          <Text className='mt-2'>Phoenix Bakepxr</Text>
+          <Text className='text-gray-400 text-sm mt-1'>Created an iOS App Store build.</Text>
+          <View className='mt-2 bg-blue-100 py-[2px] rounded-full w-24 items-center'>
+            <Text className='text-sm text-blue-500'>Building...</Text>
+          </View>
         </View>
-      </ScrollView>
+      </View>
+
+      <View className='border border-gray-200 rounded-lg mx-4 my-2 p-4 bg-white flex flex-row'>
+        <View className='w-16 h-16 bg-orange-300 rounded-full'></View>
+        <View className='ml-4'>
+          <Text className='mt-2'>Andi Lane</Text>
+          <Text className='text-gray-400 text-sm mt-1'>Created an iOS App Store build.</Text>
+          <View className='mt-2 bg-green-50 py-[2px] rounded-full w-24 items-center'>
+            <Text className='text-sm text-green-500'>Finished</Text>
+          </View>
+        </View>
+      </View>
+
+      <View className='border border-gray-200 rounded-lg mx-4 my-2 p-4 bg-white flex flex-row'>
+        <View className='w-16 h-16 bg-sky-300 rounded-full'></View>
+        <View className='ml-4 flex-1'>
+          <Text className='mt-2'>Phoenix Baker</Text>
+          <Text className='text-gray-400 text-sm mt-1'>Published an update "Fixes typo" on production via Github.</Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+export default App
